@@ -1,380 +1,463 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transporte Carranza</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-  </head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transporte Carranza S.A. — TRACASA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-
-  <!-- Contenedor del Chatbot -->
-  <div class="chatbot-container" id="chatbot">
-    <div class="chatbot-header">
-      <span>🚛 Asistente Virtual TC</span>
-      <button id="close-chatbot">✖</button>
+ 
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#inicio">
+      <span class="logo-mark">TC</span>
+      <div class="logo-text">
+        <span class="logo-name">TRACASA</span>
+        <span class="logo-sub">Transporte Carranza S.A.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#cotizador">Cotizador IA</a>
+      <a href="#monitoreo">Monitoreo</a>
+      <a href="#reportes">Reportes</a>
+      <a href="#contacto">Contacto</a>
     </div>
-    <div class="chatbot-mensajes" id="chat-messages">
-      <!-- Los mensajes se añadirán aquí dinámicamente -->
+    <button class="btn-nav-cta" onclick="document.getElementById('cotizador').scrollIntoView({behavior:'smooth'})">Cotizar ahora</button>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicios" onclick="closeMobile()">Servicios</a>
+    <a href="#cotizador" onclick="closeMobile()">Cotizador IA</a>
+    <a href="#monitoreo" onclick="closeMobile()">Monitoreo</a>
+    <a href="#reportes" onclick="closeMobile()">Reportes</a>
+    <a href="#contacto" onclick="closeMobile()">Contacto</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow g1"></div>
+    <div class="hero-glow g2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>26 años moviendo Panamá</span>
     </div>
-    <div class="chatbot-input">
-      <input type="text" id="user-input" placeholder="Escribe tu mensaje..." required>
-      <button id="send-message">Enviar</button>
+    <h1 class="hero-title">
+      <span class="line1">TRANSPORTE</span>
+      <span class="line2">INTELIGENTE</span>
+      <span class="line3">DESDE COCLÉ</span>
+    </h1>
+    <p class="hero-desc">Carga seca, refrigerada, cisternas y plataformas a nivel nacional. Ahora con inteligencia artificial para cotizar, monitorear y optimizar cada despacho.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('cotizador').scrollIntoView({behavior:'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        Cotizar con IA
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">
+        Ver servicios
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">26+</span><span class="stat-l">Años</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">5</span><span class="stat-l">Tipos de carga</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Nacional</span></div>
     </div>
   </div>
-
-  <!-- Botón para abrir el chatbot -->
-  <button class="abrir-chatbot" id="chatbot-toggle">💬</button>
-
-  <header class="navbar">
-    <div class="container navbar-flex">
-      <div class="logo-container">
-        <div class="logo-column">
-          <img src="LOGO.jpg" alt="Logo de Transporte" class="logo-img" />
-          <p class="logo-sub"><strong class="tracasa-text">TRACASA</strong></p>
-        </div>
-        <h1 class="logo-text logo-text-red">Transporte Carranza S.A</h1>
-      </div>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#cotizacion-seccion">Cotización</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#reporte-manejo">Reporte de manejo</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <h2>Soluciones de Transporte Confiables y Eficientes</h2>
-      <p>Especialistas en carga seca, refrigerada, cisternas y mesas en todo Panamá.</p>
-      <a href="#cotizacion-seccion" class="btn-cotiza">Solicita una Cotización</a>
-    </div>
-  </section>
-
-  <section class="descripcion bg-light-gray">
-    <div class="container">
-      <p>
-        Somos una empresa panameña dedicada al transporte de carga nacional, adaptándonos a cada necesidad logística de nuestros clientes con responsabilidad, puntualidad y una flota altamente especializada.
-      </p>
-    </div>
-  </section>
-
-  <section id="servicios" class="servicios bg-white">
-    <div class="container">
-      <h2 class="seccion-titulo">Nuestros Servicios</h2>
-      <div class="servicios-grid">
-        <div class="servicio tooltip">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" width="48" height="48">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l9 5 9-5m-18 0l9-5 9 5m-18 0v10l9 5 9-5V7"/>
-          </svg>
-          <h3>Carga Seca</h3>
-          <span class="tooltip-text">Contenedores de 24, 48 y 53 pies para carga general.</span>
-        </div>
-
-        <div class="servicio tooltip">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" width="48" height="48">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20m0-10l6-6m-6 6l-6-6m6 6l6 6m-6-6l-6 6"/>
-          </svg>
-          <h3>Carga Refrigerada</h3>
-          <span class="tooltip-text">Contenedores refrigerados de 24 y 56 pies.</span>
-        </div>
-
-        <div class="servicio tooltip">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" width="48" height="48">
-            <rect x="3" y="7" width="18" height="10" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 7v10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h3>Cisternas</h3>
-          <span class="tooltip-text">Cisternas de 4,000 galones para líquidos.</span>
-        </div>
-
-        <div class="servicio tooltip">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" width="48" height="48">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13h13l3 4h2a1 1 0 011 1v2h-2a2 2 0 11-4 0h-8a2 2 0 11-4 0H3v-6z"/>
-          </svg>
-          <h3>Carga en Mesas</h3>
-          <span class="tooltip-text">Flatbeds de 48 pies para estructuras pesadas.</span>
-        </div>
-
-        <div class="servicio tooltip">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" width="48" height="48">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3h6v2H9V3zm9 4v12a2 2 0 01-2 2H8a2 2 0 01-2-2V7h12zm0 0h1a1 1 0 011 1v4a1 1 0 01-1 1h-1"/>
-          </svg>
-          <h3>Mesa Botellera</h3>
-          <span class="tooltip-text">Contamos con mesas botelleras para contenedores de 53 pies.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="carrusel bg-light-gray">
-  <div class="carrusel-contenedor">
-       <h2 class="seccion-titulo red-title">Galeria de Flota</h2>
-    <div class="slide"><img src="img/foto1.jpg" alt="Imagen 1"></div>
-    <div class="slide"><img src="img/foto2.jpg" alt="Imagen 2"></div>
-    <div class="slide"><img src="img/foto3.jpg" alt="Imagen 3"></div>
-    <div class="slide"><img src="img/foto4.jpg" alt="Imagen 4"></div>
-    <div class="slide"><img src="img/foto5.jpg" alt="Imagen 5"></div>
-    <div class="slide"><img src="img/foto6.jpg" alt="Imagen 6"></div>
-    <div class="slide"><img src="img/foto7.jpg" alt="Imagen 7"></div>
+  <div class="hero-truck">
+    <svg viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="truck-svg">
+      <!-- Trailer -->
+      <rect x="20" y="80" width="380" height="140" rx="8" fill="#111111" stroke="#DC2626" stroke-width="2"/>
+      <rect x="28" y="88" width="364" height="124" rx="4" fill="#0a0a0a"/>
+      <text x="210" y="158" font-family="Bebas Neue,sans-serif" font-size="32" fill="#DC2626" text-anchor="middle" letter-spacing="4">TRACASA</text>
+      <text x="210" y="178" font-family="DM Sans,sans-serif" font-size="11" fill="#525252" text-anchor="middle" letter-spacing="2">TRANSPORTE CARRANZA S.A.</text>
+      <!-- Cab -->
+      <path d="M400 100 L400 220 L530 220 L550 200 L560 170 L540 120 L500 100 Z" fill="#111111" stroke="#DC2626" stroke-width="2"/>
+      <path d="M412 108 L412 180 L520 180 L536 164 L542 140 L526 112 Z" fill="#0a0a0a"/>
+      <path d="M420 115 L420 170 L505 170 L518 157 L522 138 L510 118 Z" fill="#DC2626" opacity="0.07"/>
+      <!-- Windows -->
+      <path d="M422 120 L422 160 L500 160 L512 148 L515 132 L505 120 Z" fill="#1a1a1a" stroke="#333" stroke-width="1" opacity="0.9"/>
+      <!-- Exhaust -->
+      <rect x="500" y="60" width="10" height="55" rx="3" fill="#222" stroke="#333" stroke-width="1"/>
+      <ellipse cx="505" cy="60" rx="6" ry="4" fill="#333"/>
+      <!-- Wheels -->
+      <circle cx="80" cy="230" r="32" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
+      <circle cx="80" cy="230" r="18" fill="#111" stroke="#DC2626" stroke-width="2"/>
+      <circle cx="80" cy="230" r="6" fill="#DC2626"/>
+      <circle cx="230" cy="230" r="32" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
+      <circle cx="230" cy="230" r="18" fill="#111" stroke="#DC2626" stroke-width="2"/>
+      <circle cx="230" cy="230" r="6" fill="#DC2626"/>
+      <circle cx="460" cy="230" r="30" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
+      <circle cx="460" cy="230" r="16" fill="#111" stroke="#DC2626" stroke-width="2"/>
+      <circle cx="460" cy="230" r="5" fill="#DC2626"/>
+      <circle cx="520" cy="230" r="30" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
+      <circle cx="520" cy="230" r="16" fill="#111" stroke="#DC2626" stroke-width="2"/>
+      <circle cx="520" cy="230" r="5" fill="#DC2626"/>
+      <!-- Lights -->
+      <ellipse cx="558" cy="155" rx="8" ry="6" fill="#f5f5f5" opacity="0.9"/>
+      <ellipse cx="558" cy="155" rx="14" ry="10" fill="#f5f5f5" opacity="0.1"/>
+    </svg>
   </div>
-  <button class="carrusel-btn prev" onclick="prevSlideManual()">&#10094;</button>
-  <button class="carrusel-btn next" onclick="nextSlideManual()">&#10095;</button>
-  <div class="carrusel-dots" id="carrusel-dots">
-    </div>
 </section>
-
-  <section id="cotizacion-seccion" class="cotizacion bg-light-gray">
-    <div class="container">
-      <h2 class="seccion-titulo red-title">Cotización</h2>
-      <form class="formulario-cotizacion" onsubmit="return false;">
-
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="tipo-carga">Tipo de carga</label>
-            <select id="tipo-carga" name="Tipo de carga" required>
-              <option value="">Seleccione...</option>
-              <option value="Carga seca">Carga seca</option>
-              <option value="Carga refrigerada">Carga refrigerada</option>
-              <option value="Cisterna">Cisterna</option>
-              <option value="Carga en mesas">Carga en mesas (flatbed)</option>
-              <option value="Mesa Botellera">Mesa Botellera</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="origen">Origen</label>
-            <input type="text" id="origen" name="Origen" required placeholder="Ej. Ciudad de Panamá" />
-          </div>
-
-          <div class="form-group">
-            <label for="destino">Destino</label>
-            <input type="text" id="destino" name="Destino" required placeholder="Ej. David, Chiriquí" />
-          </div>
-
-          <div class="form-group">
-            <label for="peso">Peso estimado (kg)</label>
-            <input type="number" id="peso" name="Peso estimado" min="1" required />
-          </div>
-
-          <div class="form-group">
-            <label for="urgencia">Urgencia del transporte</label>
-            <select id="urgencia" name="Urgencia" required>
-              <option value="">Seleccione...</option>
-              <option value="Normal">Normal (3-5 días)</option>
-              <option value="Urgente">Urgente (24-48h)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="contacto">Nombre y contacto</label>
-            <input type="text" id="contacto" name="Nombre y contacto" required placeholder="Ej. Juan Pérez, 6666-7777" />
-          </div>
-        </div>
-
-        <div class="form-boton">
-          <button type="button" class="btn-cotiza" onclick="calcularCotizacionFormulario()">Calcular Cotización</button>
-        </div>
-      </form>
-
-      <div id="resultado-formulario-cotizacion">
-        <!-- La cotización generada se insertará aquí -->
-      </div>
-    </div>
-  </section>
-
-
-<section id="calculadora-seccion" class="calculadora bg-light-gray">
+ 
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
   <div class="container">
-    <h2 class="seccion-titulo">Calculadora de Volumen/Peso</h2>
-    <p class="calculadora-intro">Estima el volumen cúbico o el peso volumétrico de tu carga para una cotización más precisa.</p>
-
-    <div class="calculadora-herramienta">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="largo">Largo (metros)</label>
-          <input type="number" id="largo" min="0.01" step="0.01" placeholder="Ej. 1.5" required>
+    <div class="section-header">
+      <span class="section-tag">Nuestra flota especializada</span>
+      <h2 class="section-title">Servicios de <span class="accent">transporte</span></h2>
+      <p class="section-desc">Cinco modalidades de carga para cubrir todas las necesidades logísticas de Panamá.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-service="seca">
+        <div class="svc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div class="form-group">
-          <label for="ancho">Ancho (metros)</label>
-          <input type="number" id="ancho" min="0.01" step="0.01" placeholder="Ej. 1.2" required>
-        </div>
-        <div class="form-group">
-          <label for="alto">Alto (metros)</label>
-          <input type="number" id="alto" min="0.01" step="0.01" placeholder="Ej. 1.0" required>
-        </div>
-        <div class="form-group">
-          <label for="cantidad">Cantidad de bultos/cajas</label>
-          <input type="number" id="cantidad" min="1" step="1" value="1" required>
-        </div>
+        <h3>Carga Seca</h3>
+        <p>Contenedores de 24, 48 y 53 pies para carga general consolidada o completa.</p>
+        <div class="svc-tags"><span>24 pies</span><span>48 pies</span><span>53 pies</span></div>
       </div>
-
-      <div class="form-boton">
-        <button type="button" class="btn-cotiza" onclick="calcularVolumenPeso()">Calcular</button>
+      <div class="service-card featured" data-service="refrigerada">
+        <div class="svc-badge">⭐ Premium</div>
+        <div class="svc-icon cold">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07l14.14-14.14"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Carga Refrigerada</h3>
+        <p>Cadena de frío garantizada con monitoreo en tiempo real. Contenedores de 24 y 56 pies.</p>
+        <div class="svc-tags"><span>24 pies</span><span>56 pies</span><span>-18°C a +10°C</span></div>
       </div>
-
-      <div class="calculadora-resultado" id="calculadora-resultado" style="display:none;">
-        <h3>Resultados de la Carga:</h3>
-        <p><strong>Volumen Cúbico Total:</strong> <span id="resultado-volumen"></span> m³</p>
-        <p><strong>Peso Volumétrico Estimado:</strong> <span id="resultado-peso-volumetrico"></span> kg</p>
-        <p class="nota-resultado">**Nota:** Este es un valor estimado. El costo final puede variar según la carga real y otros factores.</p>
+      <div class="service-card" data-service="cisterna">
+        <div class="svc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="12" rx="10" ry="6"/><path d="M2 12v4c0 3.31 4.48 6 10 6s10-2.69 10-6v-4"/></svg>
+        </div>
+        <h3>Cisternas</h3>
+        <p>Transporte de líquidos a granel con cisternas de 4,000 galones de capacidad.</p>
+        <div class="svc-tags"><span>4,000 gal</span><span>Líquidos</span></div>
+      </div>
+      <div class="service-card" data-service="mesa">
+        <div class="svc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 17v3M18 17v3M2 11h20"/></svg>
+        </div>
+        <h3>Carga en Mesas</h3>
+        <p>Flatbeds de 48 pies para estructuras pesadas, maquinaria y cargas sobredimensionadas.</p>
+        <div class="svc-tags"><span>Flatbed 48 pies</span><span>Pesado</span></div>
+      </div>
+      <div class="service-card" data-service="botellera">
+        <div class="svc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8l2 4H6L8 2zM6 6h12v14a2 2 0 01-2 2H8a2 2 0 01-2-2V6z"/><path d="M10 11v6M14 11v6"/></svg>
+        </div>
+        <h3>Mesa Botellera</h3>
+        <p>Plataformas especializadas de 53 pies para contenedores de bebidas y líquidos envasados.</p>
+        <div class="svc-tags"><span>53 pies</span><span>Contenedores</span></div>
       </div>
     </div>
   </div>
 </section>
-
-
-<section id="faq-seccion" class="faq bg-white">
+ 
+<!-- COTIZADOR IA -->
+<section class="section dark-section" id="cotizador">
   <div class="container">
-    <h2 class="seccion-titulo">Preguntas Frecuentes</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h3>¿Qué tipos de carga transportan?</h3>
-        <p>Transportamos carga seca, refrigerada, en cisternas y en mesas (flatbed) para estructuras pesadas.</p>
+    <div class="section-header">
+      <span class="section-tag ai-tag">✦ Inteligencia Artificial</span>
+      <h2 class="section-title">Cotizador <span class="accent">con IA</span></h2>
+      <p class="section-desc">Ingresa los datos de tu carga y nuestra IA calcula el precio estimado al instante, considerando ruta, temporada y tipo de servicio.</p>
+    </div>
+    <div class="cotizador-layout">
+      <div class="cotizador-form-wrap">
+        <div class="form-card">
+          <div class="form-section-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            Datos de la carga
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tipo de servicio</label>
+              <select id="cot-tipo">
+                <option value="">Seleccionar...</option>
+                <option value="seca">Carga seca</option>
+                <option value="refrigerada">Carga refrigerada</option>
+                <option value="cisterna">Cisterna</option>
+                <option value="mesa">Mesa / Flatbed</option>
+                <option value="botellera">Mesa botellera</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Urgencia</label>
+              <select id="cot-urgencia">
+                <option value="normal">Normal (3–5 días)</option>
+                <option value="urgente">Urgente (24–48 h)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Origen</label>
+              <select id="cot-origen">
+                <option value="">Seleccionar provincia</option>
+                <option>Ciudad de Panamá</option>
+                <option>Colón</option>
+                <option>Coclé</option>
+                <option>Chiriquí</option>
+                <option>Veraguas</option>
+                <option>Herrera</option>
+                <option>Los Santos</option>
+                <option>Bocas del Toro</option>
+                <option>Darién</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Destino</label>
+              <select id="cot-destino">
+                <option value="">Seleccionar provincia</option>
+                <option>Ciudad de Panamá</option>
+                <option>Colón</option>
+                <option>Coclé</option>
+                <option>Chiriquí</option>
+                <option>Veraguas</option>
+                <option>Herrera</option>
+                <option>Los Santos</option>
+                <option>Bocas del Toro</option>
+                <option>Darién</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Peso estimado (kg)</label>
+              <input type="number" id="cot-peso" placeholder="Ej: 5000" min="0">
+            </div>
+            <div class="form-group">
+              <label>Contacto</label>
+              <input type="text" id="cot-contacto" placeholder="Nombre y teléfono">
+            </div>
+          </div>
+          <button class="btn-primary full" id="btnCotizar" onclick="cotizarIA()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Calcular con IA
+          </button>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>¿A qué destinos llegan sus servicios?</h3>
-        <p>Realizamos transporte de carga a nivel nacional en todo Panamá, cubriendo las principales ciudades y provincias.</p>
+      <div class="cotizador-result" id="cotizadorResult">
+        <div class="result-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <p>Completa el formulario y la IA analizará tu solicitud al instante</p>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>¿Cómo puedo solicitar una cotización?</h3>
-        <p>Puedes solicitar una cotización a través de nuestro formulario en línea en la sección "Cotización", o contactándonos directamente por teléfono o correo electrónico.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Ofrecen seguro para la carga?</h3>
-        <p>Sí, su carga está asegurada durante el transporte. Para detalles específicos sobre la cobertura, por favor, contáctenos.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Cuáles son los tiempos de entrega estimados?</h3>
-        <p>Los tiempos de entrega varían según el origen, destino y tipo de carga. Ofrecemos opciones de servicio normal (3-5 días) y urgente (24-48 horas).</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Cómo calculo el volumen o peso de mi carga?</h3>
-        <p>Hemos añadido una calculadora de volumen/peso en la sección "Calculadora" de nuestra página web para que obtengas una estimación.</p>
-      </div>
-      </div>
+    </div>
   </div>
 </section>
-
-  <section id="reporte-manejo" class="reporte-manejo bg-white">
-    <div class="container">
-      <h2 class="seccion-titulo">Reporte de Manejo</h2>
-      <p>Completa el siguiente formulario para reportar detalles importantes sobre el manejo de la carga o cualquier incidencia durante el transporte.</p>
-
-      <form id="form-reporte" class="formulario-reporte" action="https://formsubmit.co/transporte-carranza@hotmail.com" method="POST" target="_blank">
-        <input type="hidden" name="_captcha" value="false">
-
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="fecha">Fecha del reporte</label>
-            <input type="date" id="fecha" name="Fecha" required />
+ 
+<!-- MONITOREO CADENA FRÍA -->
+<section class="section" id="monitoreo">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag ai-tag">✦ Monitoreo en Tiempo Real</span>
+      <h2 class="section-title">Control de <span class="accent">cadena de frío</span></h2>
+      <p class="section-desc">Sistema de IA que detecta anomalías de temperatura y predice fallas antes de que ocurran.</p>
+    </div>
+    <div class="monitor-layout">
+      <div class="monitor-panel">
+        <div class="monitor-header">
+          <div class="monitor-title">
+            <span class="status-dot active"></span>
+            Dashboard de flota refrigerada
           </div>
-
-          <div class="form-group">
-            <label for="chofer">Nombre del chofer</label>
-            <input type="text" id="chofer" name="Chofer" placeholder="Ej. Carlos Gómez" required />
+          <button class="btn-sm" onclick="simularAlerta()">Simular alerta</button>
+        </div>
+        <div class="trucks-list" id="trucksList">
+          <!-- generado por JS -->
+        </div>
+      </div>
+      <div class="monitor-side">
+        <div class="alert-panel" id="alertPanel">
+          <div class="alert-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Alertas IA
           </div>
-
-          <div class="form-group">
-            <label for="vehiculo">Número o placa del vehículo</label>
-            <input type="text" id="vehiculo" name="Vehiculo" placeholder="Ej. P123-456" required />
-          </div>
-
-          <div class="form-group" style="grid-column: 1 / -1;">
-            <label for="descripcion">Descripción del reporte</label>
-            <textarea id="descripcion" name="Descripción" rows="5" placeholder="Escribe aquí los detalles del reporte..." required></textarea>
-          </div>
-
-          <div class="form-group" style="grid-column: 1 / -1;">
-            <label for="contacto-reporte">Contacto (nombre y teléfono)</label>
-            <input type="text" id="contacto-reporte" name="Contacto" placeholder="Ej. Ana Pérez, 5555-1234" required />
+          <div class="alert-list" id="alertList">
+            <div class="alert-empty">Sin alertas activas. Sistema operando normalmente.</div>
           </div>
         </div>
-
-        <div class="form-boton">
-          <button type="submit" class="btn-cotiza">Enviar Reporte</button>
+        <div class="ia-insight" id="iaInsight">
+          <div class="insight-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Análisis IA
+          </div>
+          <p id="insightText">Todos los vehículos refrigerados operando dentro de parámetros normales. Temperatura promedio de flota: <strong>-4.2°C</strong>. No se detectan anomalías.</p>
         </div>
-      </form>
-
-      <div id="mensaje-reporte" style="display:none; margin-top:1rem; color:green; font-weight:bold;">
-        ¡Reporte enviado con éxito! ✔️
       </div>
     </div>
-  </section>
-
-
-
-
-  <section id="contacto" class="contacto bg-dark-gray">
-    <div class="container">
-      <h2 class="seccion-titulo">Contáctanos</h2>
-      <div class="contacto-grid">
-
-        <div class="contacto-info">
-          <p><strong>📍 Dirección:</strong> Natá,Coclé, Panamá</p>
-          <p><strong>📞 Celular:</strong> </p>
-          <ul style="list-style: none; padding-left: 0;">
-            <li><a href="tel:+50766749040"> +507 6674-9040</a></li>
-            <li><a href="tel:+50761234567"> +507 6780-8030</a></li>
-          </ul>
-          <p><strong>📞Teléfono:</strong> <a href="tel:+50760001111">+507 993-6649</a></p>
-          <p><strong>📧 Correo:</strong> <a href="mailto:info@transportelogistico.com">transporte-carranza@hotmail.com</a></p>
+  </div>
+</section>
+ 
+<!-- ASISTENTE IA -->
+<section class="section dark-section" id="asistente">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag ai-tag">✦ Asistente Virtual</span>
+      <h2 class="section-title">Asistente <span class="accent">TARA</span></h2>
+      <p class="section-desc">Transporte Carranza AI — responde preguntas, cotiza y asesora sobre logística en tiempo real.</p>
+    </div>
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
-
-        <div class="contacto-mapa">
-         
-     <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d263.43547382586485!2d-80.52416481131795!3d8.334861315577422!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2spa!4v1753811195303!5m2!1sen!2spa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <div class="chat-name">TARA — Asistente TRACASA</div>
+          <div class="chat-status"><span class="status-dot active small"></span> En línea</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">
+          <div class="msg-bubble">¡Hola! Soy <strong>TARA</strong>, el asistente virtual de Transporte Carranza. Puedo ayudarte con cotizaciones, información de servicios, tiempos de entrega y asesoría logística. ¿En qué te puedo ayudar?</div>
+          <div class="msg-time">Ahora</div>
+        </div>
+        <div class="chat-suggestions">
+          <button onclick="enviarSugerencia('¿Cuáles son sus servicios de carga refrigerada?')">🧊 Carga refrigerada</button>
+          <button onclick="enviarSugerencia('¿Cuánto cuesta llevar carga de Panamá a Chiriquí?')">💰 Precios</button>
+          <button onclick="enviarSugerencia('¿Cuáles son los tiempos de entrega?')">⏱ Tiempos</button>
+          <button onclick="enviarSugerencia('¿Qué documentos necesito para contratar el servicio?')">📋 Requisitos</button>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')enviarMensaje()">
+        <button class="btn-send" onclick="enviarMensaje()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- REPORTES IA -->
+<section class="section" id="reportes">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag ai-tag">✦ IA para Operaciones</span>
+      <h2 class="section-title">Reporte de <span class="accent">manejo</span></h2>
+      <p class="section-desc">El sistema clasifica automáticamente el tipo de incidencia y genera alertas inteligentes al equipo correspondiente.</p>
+    </div>
+    <div class="reporte-layout">
+      <div class="form-card light">
+        <div class="form-section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Nuevo reporte
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha del reporte</label>
+            <input type="date" id="rep-fecha">
           </div>
-
+          <div class="form-group">
+            <label>Nombre del chofer</label>
+            <input type="text" id="rep-chofer" placeholder="Nombre completo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Placa del vehículo</label>
+            <input type="text" id="rep-placa" placeholder="Ej: PA-1234">
+          </div>
+          <div class="form-group">
+            <label>Contacto</label>
+            <input type="text" id="rep-contacto" placeholder="Teléfono">
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Descripción del reporte</label>
+          <textarea id="rep-descripcion" rows="4" placeholder="Describe el incidente, manejo de carga u observación relevante..."></textarea>
+        </div>
+        <button class="btn-primary full" onclick="analizarReporte()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Enviar y analizar con IA
+        </button>
+      </div>
+      <div class="reporte-result" id="reporteResult">
+        <div class="result-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <p>La IA clasificará automáticamente el tipo de incidencia y sugerirá las acciones a tomar</p>
+        </div>
       </div>
     </div>
-  </section>
-
-
-  <section id="nosotros" class="nosotros bg-white">
-    <div class="container">
-      <h2 class="seccion-titulo">Sobre Nosotros</h2>
-      <div class="nosotros-grid">
-
-        <div class="nosotros-card">
-          <h3>Misión</h3>
-          <p>Brindar soluciones de transporte de carga seguras, puntuales y adaptadas a las necesidades de cada cliente, contribuyendo al crecimiento logístico de Panamá.</p>
+  </div>
+</section>
+ 
+<!-- CONTACTO -->
+<section class="section dark-section" id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">¿Necesitas más info?</span>
+        <h2 class="section-title">Contáctanos<span class="accent">.</span></h2>
+        <p class="section-desc">Estamos en Natá, Coclé, cubriendo todo Panamá con responsabilidad y puntualidad.</p>
+        <div class="contact-items">
+          <a class="contact-item" href="tel:+50766749040">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 5.76 19.79 19.79 0 01.53 3.18a2 2 0 012-2.18h3A2 2 0 017.56 2.7a12.7 12.7 0 00.28 1.12A11 11 0 006.6 5.46l-1.55 1.56A16 16 0 0017.44 19.4l1.55-1.56a11 11 0 002.48-1.23 12.7 12.7 0 001.11.28A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="contact-label">Celular</div><div class="contact-val">+507 6674-9040</div></div>
+          </a>
+          <a class="contact-item" href="tel:+50766749040">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 5.76 19.79 19.79 0 01.53 3.18a2 2 0 012-2.18h3A2 2 0 017.56 2.7a12.7 12.7 0 00.28 1.12A11 11 0 006.6 5.46l-1.55 1.56A16 16 0 0017.44 19.4l1.55-1.56a11 11 0 002.48-1.23 12.7 12.7 0 001.11.28A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="contact-label">Celular 2</div><div class="contact-val">+507 6780-8030</div></div>
+          </a>
+          <a class="contact-item" href="tel:+5079936649">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.59 5.76 19.79 19.79 0 01.53 3.18a2 2 0 012-2.18h3A2 2 0 017.56 2.7a12.7 12.7 0 00.28 1.12A11 11 0 006.6 5.46l-1.55 1.56A16 16 0 0017.44 19.4l1.55-1.56a11 11 0 002.48-1.23 12.7 12.7 0 001.11.28A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="contact-label">Teléfono</div><div class="contact-val">+507 993-6649</div></div>
+          </a>
+          <a class="contact-item" href="mailto:transporte-carranza@hotmail.com">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="contact-label">Correo</div><div class="contact-val">transporte-carranza@hotmail.com</div></div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="contact-label">Dirección</div><div class="contact-val">Natá, Coclé, Panamá</div></div>
+          </div>
         </div>
-
-        <div class="nosotros-card">
-          <h3>Visión</h3>
-          <p>Ser la empresa de transporte de carga líder en Panamá por eficiencia, compromiso y tecnología aplicada al servicio.</p>
-        </div>
-
-        <div class="nosotros-card">
-          <h3>Experiencia</h3>
-          <p>Contamos con más de <strong> 26 años de experiencia</strong> en el transporte de carga seca, refrigerada, cisternas y mesas a nivel nacional.</p>
-        </div>
-
-        <div class="nosotros-card">
-          <h3>Flota y Equipo</h3>
-          <p>Nuestra flota incluye camiones modernos, refrigerados, cisternas y plataformas, operados por un equipo altamente capacitado y comprometido con la seguridad y puntualidad.</p>
-        </div>
-
+      </div>
+      <div class="map-placeholder">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d263.43547382586485!2d-80.52416481131795!3d8.334861315577422!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2spa!4v1753811195303!5m2!1sen!2spa"
+          width="100%" height="320" style="border:0;border-radius:12px;filter:grayscale(1) invert(0.8)contrast(1.1)" allowfullscreen="" loading="lazy">
+        </iframe>
       </div>
     </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p> 2025 TRANSPORTE CARRANZA S.A</p>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark sm">TC</span>
+        <div>
+          <div class="footer-name">TRACASA</div>
+          <div class="footer-sub">Transporte Carranza S.A.</div>
+        </div>
+      </div>
+      <div class="footer-copy">© 2025 Transporte Carranza S.A. — Natá, Coclé, Panamá</div>
+      <div class="footer-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Potenciado por IA
+      </div>
     </div>
-  </footer>
-
+  </div>
+</footer>
+ 
+<script src="app.js"></script>
 </body>
 </html>
